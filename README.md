@@ -10,7 +10,7 @@ bash setup.sh
 ```
 Or:
 ```bash
-chmod u+x setup.sh
+sudo chmod u+x setup.sh
 ./setup.sh
 ```
 
