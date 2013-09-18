@@ -1,10 +1,13 @@
 set nocompatible
 set t_Co=256
 
+"=============Useful Commands ======================
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+
 "================ Syntax Highlighting ==============
 syntax on
 colorscheme molokai
-g:molokai_original = 1
+"g:molokai_original = 1
 
 filetype on
 

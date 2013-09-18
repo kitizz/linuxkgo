@@ -9,6 +9,11 @@ alias duf='du -sk * | sort -n | perl -ne '\''($s,$f)=split(m{\t});for (qw(K M G)
 export PATH=$PATH:~/bin/
 export EDITOR=vim
 
-source ./sshrc
-source ./extract
+. "$HOME/.myrc/sshrc"
+. "$HOME/.myrc/extract"
+
+# A really useful command for getting syntax highlighting when sudo vim
+svim () {
+    sudo -E vim @$
+}
 
