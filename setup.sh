@@ -17,6 +17,11 @@ if [ -z $VIMBIN ]
 then
     sudo apt-get install vim
 fi
+GITBIN=$(which git)
+if [ -z $GITBIN ]
+then
+    sudo apt-get install git
+fi
 
 # Add a source to mybash if it doesn't exist yet
 export line=". \"\$HOME/.myrc/mybashrc\""
