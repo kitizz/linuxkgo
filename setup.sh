@@ -1,12 +1,24 @@
 #!/bin/bash
 
+echo "On Mac? (y/N):"
+read input
+export input="$(echo $input | tr '[:upper:]' '[:lower:]')"
+if [ "$input" == "y" ]
+then
+    export sourceFile=$HOME/.profile
+else
+    export sourceFile=$HOME/.bashrc
+fi
+
+echo "Using source file, $sourceFile"
+
 # Add a source to mybash if it doesn't exist yet
 export line=". \"\$HOME/.myrc/mybashrc\""
-if grep -Fxq "$line" ~/.profile
+if grep -Fxq "$line" "$sourceFile"
 then
     echo "Line not added"
 else
-    echo $line >> ~/.profile
+    echo $line >> $sourceFile
     echo "Line Added"
 fi
 
@@ -18,5 +30,5 @@ cp -rf myrc/. ~/.myrc/
 bash setupVim.sh
 bash setupGit.sh
 
-. ~/.profile
+. $sourceFile
 
