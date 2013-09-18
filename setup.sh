@@ -12,6 +12,12 @@ fi
 
 echo "Using source file, $sourceFile"
 
+VIMBIN=$(which vim)
+if [ -z $VIMBIN ]
+then
+    sudo apt-get install vim
+fi
+
 # Add a source to mybash if it doesn't exist yet
 export line=". \"\$HOME/.myrc/mybashrc\""
 if grep -Fxq "$line" "$sourceFile"
