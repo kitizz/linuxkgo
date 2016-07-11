@@ -24,7 +24,7 @@ then
 fi
 
 # Add a source to mybash if it doesn't exist yet
-export line=". \"\$HOME/.myrc/mybashrc\""
+export line=". \"\$HOME/.myrc/bashrc\""
 if grep -Fxq "$line" "$sourceFile"
 then
     echo "Line not added"
