@@ -14,6 +14,8 @@ export EDITOR=vim
 . "$HOME/.myrc/sshrc"
 . "$HOME/.myrc/extract"
 
+export LS_COLORS="ow=01;36;40"
+
 # A really useful command for getting syntax highlighting when sudo vim
 svim () {
     sudo -E vim @$
