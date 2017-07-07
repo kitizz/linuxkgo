@@ -1,0 +1,3 @@
+# From: https://askubuntu.com/questions/12368/ipython-like-command-history-for-shell
+"\e[A" history-search-backward
+"\e[B" history-search-forward

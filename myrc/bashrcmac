@@ -1,6 +1,6 @@
 #Let's get going, lets add aliases
 alias ..='cd ..'
-alias ls='ls --color=auto -G'
+alias ls='ls -G'
 alias gits='git status'
 
 # List file sizes and sort!

@@ -1,0 +1,13 @@
+git
+python
+python3
+ipython
+llvm
+gcc
+openblas
+suite-sparse
+opencv3 --without-python --with-python3 --without-numpy
+zmq
+ffmpeg
+libav
+pkg-config
