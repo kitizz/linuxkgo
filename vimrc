@@ -11,6 +11,12 @@ colorscheme molokai
 
 filetype on
 
+" Enable Mouse
+set mouse=a
+
+" Remove escape key delays
+set timeoutlen=1000 ttimeoutlen=0
+
 " ================ Indentation ======================
 set tabstop=4
 set shiftwidth=4

@@ -24,6 +24,16 @@ if [ -z $GITBIN ]
 then
     sudo apt-get install git
 fi
+PY3=$(which python3)
+if [ -z $PY3 ]
+then
+    sudo apt-get install python3
+fi
+PIP3=$(which pip3)
+if [ -z $PIP3 ]
+then
+    sudo apt-get install python3-pip
+fi
 
 # Add a source to mybash if it doesn't exist yet
 #export line=". \"\$HOME/.myrc/bashrc\""
@@ -41,8 +51,9 @@ cp -rf myrc/. ~/.myrc/
 cp -f inputrc ~/.inputrc
 
 # Setup Vim
-bash setupVim.sh
-bash setupGit.sh
+bash setup_vim.sh
+bash setup_git.sh
+bash setup_tmux.sh
 
 . $sourceFile
 
