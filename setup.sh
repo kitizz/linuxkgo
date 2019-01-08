@@ -47,7 +47,7 @@ fi
 
 # Put the files there
 mkdir -p ~/.myrc
-cp -rf myrc/. ~/.myrc/
+cp -ri myrc/. ~/.myrc/
 cp -f inputrc ~/.inputrc
 
 # Setup Vim
