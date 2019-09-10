@@ -54,6 +54,7 @@ cp -f inputrc ~/.inputrc
 bash setup_vim.sh
 bash setup_git.sh
 bash setup_tmux.sh
+bash setup_fzf.sh
 
 . $sourceFile
 
