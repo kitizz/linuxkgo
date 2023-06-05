@@ -1,0 +1,40 @@
+# Activate Starship
+eval "$(starship init zsh)"
+
+# Don't use the oh-my-zsh theme.
+ZSH_THEME=""
+
+# Personalized aliases, etc.
+alias ..='cd ..'
+alias ls='ls -G'
+alias gits='git status'
+
+# List file sizes and sort!
+alias duf='du -sk * | sort -n | perl -ne '\''($s,$f)=split(m{\t});for (qw(K M G)) {if($s<1024) {printf("%.1f",$s);print "$_\t$f"; last};$s=$s/1024}'\'
+
+source "$HOME/.myrc/sshrc"
+source "$HOME/.myrc/extract"
+
+# Avoid duplicates in history
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=5000
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt incappendhistory
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+# Add Visual Studio Code (code)
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+export PATH=$PATH:~/bin
+export EDITOR=vim
+
+# A really useful command for getting syntax highlighting when sudo vim
+svim () {
+    sudo -E vim @$
+}

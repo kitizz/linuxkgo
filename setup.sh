@@ -1,47 +1,40 @@
 #!/bin/bash
 
-echo "On Mac? (y/N):"
-read input
-export input="$(echo $input | tr '[:upper:]' '[:lower:]')"
-if [ "$input" == "y" ]
+
+if [[ $OSTYPE == 'darwin'* ]]
 then
-    export sourceFile=$HOME/.profile
-    export line=". \"\$HOME/.myrc/bashrcmac\""
+    export bashSourceFile=$HOME/.profile
+    export line='. "$HOME/.myrc/bashrcmac"'
+
+    bash setup_mac.sh
 else
-    export sourceFile=$HOME/.bashrc
-    export line=". \"\$HOME/.myrc/bashrc\""
+    export bashSourceFile=$HOME/.bashrc
+    export line='. "$HOME/.myrc/bashrc"'
+
+    bash setup_debian.sh
 fi
 
-echo "Using source file, $sourceFile"
-
-VIMBIN=$(which vim)
-if [ -z $VIMBIN ]
-then
-    sudo apt-get install vim
-fi
-GITBIN=$(which git)
-if [ -z $GITBIN ]
-then
-    sudo apt-get install git
-fi
-PY3=$(which python3)
-if [ -z $PY3 ]
-then
-    sudo apt-get install python3
-fi
-PIP3=$(which pip3)
-if [ -z $PIP3 ]
-then
-    sudo apt-get install python3-pip
-fi
-
+echo "Using bash source file, $bashSourceFile"
 # Add a source to mybash if it doesn't exist yet
 #export line=". \"\$HOME/.myrc/bashrc\""
-if grep -Fxq "$line" "$sourceFile"
+if grep -Fxq "$line" "$bashSourceFile"
 then
-    echo "Line not added"
+    echo "Bashrc source line not added"
 else
-    echo $line >> $sourceFile
+    echo $line >> $bashSourceFile
+    echo "Line Added"
+fi
+
+export zshSourceFile=$HOME/.zshrc
+export zshLine='source "$HOME/.myrc/zshrc"'
+echo "Using zsh source file, $zshSourceFile"
+# Add a source to my zshrc if it doesn't exist yet
+#export line="source \"\$HOME/.myrc/zshrc\""
+if grep -Fxq "$zshLine" "$zshSourceFile"
+then
+    echo "ZSH source line not added"
+else
+    echo $zshLine >> $zshSourceFile
     echo "Line Added"
 fi
 
@@ -56,5 +49,5 @@ bash setup_git.sh
 bash setup_tmux.sh
 bash setup_fzf.sh
 
-. $sourceFile
+. $bashSourceFile
 
