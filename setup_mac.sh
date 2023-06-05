@@ -8,6 +8,9 @@ then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
+# Install the starship prompt.
+brew install starship || true
+
 # Load iTerm colors.
 mkdir -p $HOME/Documents/iterm_settings
 echo "Copying iTerm2 settings to $HOME/Documents/iterm_settings"
