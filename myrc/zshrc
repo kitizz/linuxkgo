@@ -15,6 +15,9 @@ alias duf='du -sk * | sort -n | perl -ne '\''($s,$f)=split(m{\t});for (qw(K M G)
 source "$HOME/.myrc/sshrc"
 source "$HOME/.myrc/extract"
 
+# Make sure the conda completion plugin is loaded
+autoload -U compinit && compinit
+
 # Avoid duplicates in history
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
