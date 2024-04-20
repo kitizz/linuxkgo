@@ -1,0 +1,17 @@
+// As suggested here: https://www.reddit.com/r/zellij/comments/17863uf/comment/k4yjkqd/?utm_source=share&utm_medium=web2x&context=3
+default_mode "locked"
+
+theme "gruvbox-dark"
+
+keybinds {
+    // Default bindings: https://github.com/zellij-org/zellij/blob/main/zellij-utils/assets/config/default.kdl
+    locked {
+        bind "Ctrl g" { SwitchToMode "normal"; }
+        bind "Alt t" { NewTab; }
+        bind "Alt j" { GoToPreviousTab; }
+        bind "Alt l" { GoToNextTab; }
+        bind "Alt d" { Detach; }
+        bind "Alt =" { Resize "Increase"; }
+        bind "Alt -" { Resize "Decrease"; }
+    }
+}

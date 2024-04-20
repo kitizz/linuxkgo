@@ -10,7 +10,15 @@ then
 fi
 
 # Install the starship prompt.
-HOMEBREW_NO_AUTO_UPDATE=1 brew install starship || true
+HOMEBREW_NO_AUTO_UPDATE=1
+
+# # See: https://apple.stackexchange.com/questions/255978/how-to-make-brew-install-a-package-only-if-it-is-not-yet-installed-and-upgrade
+# brew_install() { if brew ls --versions "$1"; then brew upgrade "$1"; else brew install "$1"; fi }
+
+# Install core tools
+brew install starship
+brew install wget
+brew install python3
 
 # Load iTerm colors.
 mkdir -p $HOME/Documents/iterm_settings
@@ -45,9 +53,16 @@ then
     git clone https://github.com/esc/conda-zsh-completion $CONDA_COMPL_DIR
 fi
 
-# Install TailScale from the latest known package.
-# TODO: With a Python script...
-# 1. Check if Tailscale is installed.
-# 2. Read page https://pkgs.tailscale.com/stable/#macos
-# 3. Match URL for text "Tailscale-*-macos.pkg"
-# 4. Download the file under that link.
+# TailScale
+TAILSCALE=$(which tailscale)
+if [ -z $TAILSCALE ]
+then
+    echo -e "\nSetting up TailScale"
+    python3 -m venv .venv
+    source .venv/bin/activate
+    python3 -m pip install -r requirements.txt
+
+    python3 setup_tailscale_mac.py
+
+    echo -e "\n>>> TODO: Finish setting up TailScale by opening the app in GUI.\n"
+fi

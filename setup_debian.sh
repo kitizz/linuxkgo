@@ -24,3 +24,10 @@ if [ -z $PIP3 ]
 then
     sudo apt-get install python3-pip
 fi
+
+TAILSCALE=$(which tailscale)
+if [ -z $TAILSCALE ]
+then
+    echo -e "\nSetting up TailScale"
+    curl -fsSL https://tailscale.com/install.sh | sh
+fi
