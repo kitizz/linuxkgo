@@ -8,6 +8,9 @@ ZSH_THEME=""
 alias ..='cd ..'
 alias ls='ls -G'
 alias gits='git status'
+alias gitb='git branch'
+alias branch='git rev-parse --abbrev-ref HEAD 2> /dev/null'
+alias root='git rev-parse --show-toplevel'
 
 # List file sizes and sort!
 alias duf='du -sk * | sort -n | perl -ne '\''($s,$f)=split(m{\t});for (qw(K M G)) {if($s<1024) {printf("%.1f",$s);print "$_\t$f"; last};$s=$s/1024}'\'
@@ -41,3 +44,16 @@ export EDITOR=vim
 svim () {
     sudo -E vim @$
 }
+
+function cls {
+  # https://invisible-island.net/ncurses/man/clear.1.html
+  # https://unix.stackexchange.com/a/375784/246718
+  # Behavior of clear:
+  # 1. clear scrollback if E3 cap is supported (terminal, platform specific)
+  # 2. then clear visible screen
+  # For some terminal 'e[3J' need to be sent explicitly to clear scrollback
+  # printf '\e[3J' && clear  # scrollback is kept by `clear`
+  clear && printf '\e[3J'
+}
+
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"

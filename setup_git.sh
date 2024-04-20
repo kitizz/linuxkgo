@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo -e "\nSetting up git..."
+
 git config --global color.ui true
 
 git config --global core.editor vim

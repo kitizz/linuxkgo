@@ -1,3 +1,5 @@
+echo -e "\nSetting up Tmux configs..."
+
 cp -i tmux.conf ~/.tmux.conf
 
 # Install powerline and add bindigns to tmux
