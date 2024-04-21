@@ -34,23 +34,13 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# Avoid global history leaking across sessions, and use it mainly for Ctrl-R search.
-# See: https://superuser.com/a/691603
-bindkey "${key[Up]}" up-line-or-local-history
-bindkey "${key[Down]}" down-line-or-local-history
-
-up-line-or-local-history() {
-    zle set-local-history 1
-    zle up-line-or-history
-    zle set-local-history 0
-}
-zle -N up-line-or-local-history
-down-line-or-local-history() {
-    zle set-local-history 1
-    zle down-line-or-history
-    zle set-local-history 0
-}
-zle -N down-line-or-local-history
+# See: https://unix.stackexchange.com/a/672892
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
 
 
 # Add Visual Studio Code (code)
