@@ -22,6 +22,7 @@ if [ "$os" == "Linux" ]; then
 
     echo -e "Moving Zellij binary to /bin directory..."
     sudo mv "/tmp/zellij" /bin/zellij
+    sudo chmod +x /bin/zellij
 
     # Check if the Zellij binary exists
     if [ -f "/bin/zellij" ]; then
