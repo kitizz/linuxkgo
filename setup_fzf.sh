@@ -1,4 +1,8 @@
-echo -e "\nSetting up fzf..."
+if [ `which fzf` ]
+then
+    echo -e "fzf is already installed."
+    exit 0
+fi
 
 HOMEBREW=$(which brew)
 if [ -z $HOMEBREW ]; then
