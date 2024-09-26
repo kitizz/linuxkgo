@@ -14,6 +14,7 @@ fi
 # - https://gist.github.com/BaksiLi/ea2f505fdbe42349a5225390264c1f40
 # - https://unix.stackexchange.com/a/429818
 os=$(uname -s)
+arch=$(uname -m)
 if [ "$os" == "Linux" ]; then
     filename="zellij-${arch}-unknown-linux-musl.tar.gz"
     url="https://github.com/zellij-org/zellij/releases/latest/download/$filename"
