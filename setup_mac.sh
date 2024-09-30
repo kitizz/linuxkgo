@@ -53,6 +53,14 @@ then
     git clone https://github.com/esc/conda-zsh-completion $CONDA_COMPL_DIR
 fi
 
+# Add fzf-tab (fuzzy tab completions) to plugins.
+FZF_TAB_DIR=${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/fzf-tab
+if [ ! -d $FZF_TAB_DIR ]
+then
+    echo -e "\nInstalling FZF Tab Completions..."
+    git clone https://github.com/Aloxaf/fzf-tab $FZF_TAB_DIR
+fi
+
 # TailScale
 TAILSCALE=$(which tailscale)
 if [ -z $TAILSCALE ]
