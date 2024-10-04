@@ -13,9 +13,9 @@ keybinds {
         bind "Alt d" { Detach; }
         bind "Alt =" { Resize "Increase"; }
         bind "Alt -" { Resize "Decrease"; }
-        bind "Alt h" { MoveFocus "Left"; }
+        bind "Alt j" { MoveFocus "Left"; }
         bind "Alt l" { MoveFocus "Right"; }
-        bind "Alt k" { MoveFocus "Up"; }
-        bind "Alt j" { MoveFocus "Down"; }
+        bind "Alt k" { MoveFocus "Down"; }
+        bind "Alt i" { MoveFocus "Up"; }
     }
 }
