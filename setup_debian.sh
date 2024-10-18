@@ -1,6 +1,12 @@
 # Common installations for Debian-based Linux distros.
 # I find these most useful on lightweight systems that don't have a lot of common packages installed.
 
+CURL=$(which curl)
+if [ -z $CURL ]
+then
+    sudo apt-get install curl
+fi
+
 VIMBIN=$(which vim)
 if [ -z $VIMBIN ]
 then
