@@ -3,6 +3,8 @@ default_mode "locked"
 
 theme "gruvbox-dark"
 
+pane_frames false
+
 keybinds {
     // Default bindings: https://github.com/zellij-org/zellij/blob/main/zellij-utils/assets/config/default.kdl
     locked {
