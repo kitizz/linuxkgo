@@ -1,7 +1,12 @@
 // As suggested here: https://www.reddit.com/r/zellij/comments/17863uf/comment/k4yjkqd/?utm_source=share&utm_medium=web2x&context=3
 default_mode "locked"
 
-theme "gruvbox-dark"
+// iTerm doesn't report its light/dark palette, so default to dark and toggle with Alt m
+theme_dark "gruvbox-dark"
+theme_light "gruvbox-light"
+explicit_theme_hue "dark"
+
+show_startup_tips false
 
 pane_frames false
 
@@ -20,6 +25,7 @@ keybinds {
         bind "Alt l" { MoveFocus "Right"; }
         bind "Alt k" { MoveFocus "Down"; }
         bind "Alt i" { MoveFocus "Up"; }
+        bind "Alt m" { ToggleTheme; }
     }
     renametab {
         // Native RenameTab drops into normal mode on Enter; return to locked
