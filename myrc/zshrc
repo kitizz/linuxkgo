@@ -49,6 +49,9 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 export PATH=$PATH:~/bin
 export EDITOR=vim
 
+# Add installed make
+export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+
 # A really useful command for getting syntax highlighting when sudo vim
 svim () {
     sudo -E vim @$

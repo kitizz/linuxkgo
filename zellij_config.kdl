@@ -12,6 +12,7 @@ keybinds {
         bind "Alt t" { NewTab; }
         bind "Alt [" { GoToPreviousTab; }
         bind "Alt ]" { GoToNextTab; }
+        bind "Alt r" { SwitchToMode "RenameTab"; TabNameInput 0; }
         bind "Alt d" { Detach; }
         bind "Alt =" { Resize "Increase"; }
         bind "Alt -" { Resize "Decrease"; }
