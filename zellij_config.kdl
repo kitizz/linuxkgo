@@ -21,4 +21,21 @@ keybinds {
         bind "Alt k" { MoveFocus "Down"; }
         bind "Alt i" { MoveFocus "Up"; }
     }
+    renametab {
+        // Native RenameTab drops into normal mode on Enter; return to locked
+        bind "Enter" { SwitchToMode "locked"; }
+    }
+    normal {
+        // Native RenameTab can only exit to one fixed mode, so rename via a
+        // floating prompt instead. Lock while it's open so typed letters
+        // reach the prompt, then the prompt switches back.
+        bind "Alt r" {
+            Run "sh" "-c" "printf 'Tab name: '; read -r n && [ -n \"$n\" ] && zellij action rename-tab \"$n\"; zellij action switch-mode normal" {
+                floating true
+                close_on_exit true
+                name "Rename tab"
+            }
+            SwitchToMode "locked";
+        }
+    }
 }
