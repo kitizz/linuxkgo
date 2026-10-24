@@ -1,8 +1,18 @@
 echo -e "\nSetting up Zellij..."
 
 # Link the config
-mkdir -p $HOME/.config/zellij
+mkdir -p $HOME/.config/zellij/layouts $HOME/.config/zellij/plugins
 ln -sf $PWD/zellij_config.kdl $HOME/.config/zellij/config.kdl
+ln -sf $PWD/zellij_layout.kdl $HOME/.config/zellij/layouts/default.kdl
+
+# zjstatus status bar plugin, referenced by the config. Zellij asks to grant its
+# permissions again whenever this file changes.
+ZJSTATUS_VERSION="v0.25.0"
+ZJSTATUS="$HOME/.config/zellij/plugins/zjstatus.wasm"
+if [ ! -f "$ZJSTATUS" ]; then
+    echo -e "Downloading zjstatus $ZJSTATUS_VERSION..."
+    curl -sfL -o "$ZJSTATUS" "https://github.com/dj95/zjstatus/releases/download/$ZJSTATUS_VERSION/zjstatus.wasm"
+fi
 
 if [ `which zellij` ]
 then
